@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -13,7 +14,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onClickLogin(view: View){
-        Toast.makeText(applicationContext,"Login",Toast.LENGTH_LONG).show()
+
+        val username = mUsername.text.toString()
+        val password = mPassword.text.toString()
+        Toast.makeText(applicationContext,"Username = $username, Password = $password",Toast.LENGTH_LONG).show()
     }
 
 
