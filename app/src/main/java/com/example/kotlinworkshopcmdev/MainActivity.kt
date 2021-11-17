@@ -21,8 +21,12 @@ class MainActivity : AppCompatActivity() {
 
         //switch activity
         val i = Intent(this@MainActivity,DetailActivity::class.java)
+        //sent data to detail activity
+        i.putExtra("username",username)
+        i.putExtra("password",password)
+
         startActivity(i)
-        Toast.makeText(applicationContext,"Username = $username, Password = $password",Toast.LENGTH_LONG).show()
+
     }
 
 
