@@ -22,8 +22,13 @@ class MainActivity : AppCompatActivity() {
         //switch activity
         val i = Intent(this@MainActivity,DetailActivity::class.java)
         //sent data to detail activity
-        i.putExtra("username",username)
-        i.putExtra("password",password)
+        //one by one
+        /*i.putExtra("username",username)
+        i.putExtra("password",password)*/
+
+        //sent data to detail activity using parcelable
+        val acc = Account(username,password)
+        i.putExtra("account",acc)
 
         startActivity(i)
 
