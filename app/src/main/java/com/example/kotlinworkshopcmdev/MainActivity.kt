@@ -1,5 +1,6 @@
 package com.example.kotlinworkshopcmdev
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -17,6 +18,10 @@ class MainActivity : AppCompatActivity() {
 
         val username = mUsername.text.toString()
         val password = mPassword.text.toString()
+
+        //switch activity
+        val i = Intent(this@MainActivity,DetailActivity::class.java)
+        startActivity(i)
         Toast.makeText(applicationContext,"Username = $username, Password = $password",Toast.LENGTH_LONG).show()
     }
 
