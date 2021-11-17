@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_detail.*
 import kotlinx.android.synthetic.main.list_item.view.*
 
@@ -41,7 +42,12 @@ class DetailActivity : AppCompatActivity() {
     private fun addDummyData(){
 
         for(i in 1..100){
-            mDataArray.add(ItemBean("Cherprang BNK48", "$i : Cherprang Areekul",""))
+            if( i % 2 != 0 ){
+                mDataArray.add(ItemBean("Cherprang BNK48", "$i : Cherprang Areekul","https://thepeople.co/wp-content/uploads/2020/10/1_Website_1200x628-1-1200x628.jpg"))
+            } else{
+                mDataArray.add(ItemBean("Cherprang BNK48", "$i : Cherprang Areekul","https://www.mangozero.com/wp-content/uploads/2021/11/Cherprang-drama-02-760x428.jpg"))
+            }
+
         }
         //mRecyclerView.adapter!!.notifyDataSetChanged() // refresh /it's work in the tutorial but i'm not
 
@@ -59,6 +65,7 @@ class DetailActivity : AppCompatActivity() {
             //use this function to update each round
             holder.title.text = mDataArray[position].title
             holder.subtitle.text = mDataArray[position].subtitle
+            Glide.with(this@DetailActivity).load(mDataArray[position].image).into(holder.image)
 
         }
 
